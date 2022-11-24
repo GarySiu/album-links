@@ -20,7 +20,7 @@ export default function handler(request, response) {
   .then(res => res.text())
   .then(result => {
     const output = JSON.stringify(JSON.parse(result).data.images.map(image => image.link))
-    .replace(/[\[|\]]/g, '')
+    .slice(1, -1)
     .replace(/,/g, ',\n');
     response.setHeader('Content-Type', 'text/plain')
     response.status(200).send(output);
