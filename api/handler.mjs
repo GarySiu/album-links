@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 export default function handler(request, response) {
-  const hashPattern = /a\/(\w+)$/
+  const hashPattern = /[a|gallery]\/(\w+)$/i
   if (!hashPattern.test(request.query['album'])) {
     return response.status(400).send('bad request');
   }
