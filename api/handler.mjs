@@ -1,5 +1,3 @@
-import fetch from 'node-fetch'
-
 export default function handler(request, response) {
   const hashPattern = /[a|gallery]\/(\w+)$/i
   if (!hashPattern.test(request.query['album'])) {
@@ -10,7 +8,7 @@ export default function handler(request, response) {
   const myHeaders = new Headers();
   myHeaders.append("Authorization", `Client-ID ${process.env.CLIENT_ID}`);
 
-  var requestOptions = {
+  const requestOptions = {
     method: 'GET',
     headers: myHeaders,
     redirect: 'follow'
