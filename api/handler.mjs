@@ -1,5 +1,5 @@
 export default function handler(request, response) {
-  const hashPattern = /[a|gallery]\/(\w+)$/i
+  const hashPattern = /(?:a|gallery)\/(\w+|[a-z0-9\-]+)(?:#|$)/i
   if (!hashPattern.test(request.query['album'])) {
     return response.status(400).send('bad request');
   }
